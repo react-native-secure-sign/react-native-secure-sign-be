@@ -15,7 +15,7 @@ import { FinishRegisterDto } from './dto/finish.dto';
 export class RegisterController {
   constructor(private readonly registerService: RegisterService) {}
 
-  @Post('initiate')
+  @Post('initiate-challenge')
   @HttpCode(200)
   initiate(
     @Req() req: Request,
@@ -28,7 +28,7 @@ export class RegisterController {
     });
   }
 
-  @Post('finish')
+  @Post('finish-challenge')
   @HttpCode(200)
   finish(@Body(new ValidationPipe()) body: FinishRegisterDto) {
     return this.registerService.finishChallenge(body);
